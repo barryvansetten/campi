@@ -6,6 +6,9 @@ class campi:
         #the directory where the pictures are stored
         self.targetDirectory = os.getenv("HOME") + "/Pictures/campi/" + datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
 
+        self.width = 1024
+        self.height = 768
+        
         #the number of pictures that were made
         self.pictureCounter = 0
 
@@ -19,8 +22,8 @@ class campi:
 
 
 
-        #import os;
-        #os.system("raspistill -o picture.jpg");
+        
+        os.system("raspistill -w 1024 -h 768 -o picture.jpg");
         
 
     
