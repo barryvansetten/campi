@@ -13,7 +13,7 @@ class campi:
         #the number of pictures that were made
         self.pictureCounter = 0
 
-    def generateFsilename(self):
+    def filename(self):
         self.pictureCounter+=1
         return self.prefix + str(self.pictureCounter) + ".jpg"
         
@@ -27,10 +27,9 @@ class campi:
 
         
 
-        shootCommand = "raspistill -w " + str(self.width) + " -h " + str(self.height) + " " + self.filename()
-                
-        
-        os.system(shootCommand);
+        shootCommand = "raspistill -w " + str(self.width) + " -h " + str(self.height) + " -o " + self.targetDirectory + "/" + self.filename()
+        #print(shootCommand)       
+        os.system(shootCommand)
         
 
 
