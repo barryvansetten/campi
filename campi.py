@@ -8,27 +8,33 @@ class campi:
 
         self.width = 1024
         self.height = 768
+        self.prefix = "campi-"
         
         #the number of pictures that were made
         self.pictureCounter = 0
 
-    def take()
+    def generateFsilename(self):
+        self.pictureCounter+=1
+        return self.prefix + str(self.pictureCounter) + ".jpg"
+        
+    def shoot(self):
         """ Take picture"""
 
         #if no pictures have been made yet then it is first checked of the target folder exists
-        if self.pictureCounter == 0
+        if self.pictureCounter == 0:
             if not os.path.exists(self.targetDirectory):
                 os.makedirs(self.targetDirectory)
 
-
-
-        
-        os.system("raspistill -w 1024 -h 768 -o picture.jpg");
         
 
-    
-    
+        shootCommand = "raspistill -w " + str(self.width) + " -h " + str(self.height) + " " + self.filename()
+                
+        
+        os.system(shootCommand);
+        
 
-cam =campi()
-print(cam.targetDirectory)
-print(cam.pictureCounter)
+
+
+cam = campi()
+cam.shoot()
+
